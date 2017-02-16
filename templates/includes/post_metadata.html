@@ -6,6 +6,6 @@
     {% endfor %}
     &mdash; <abbr title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
     {% if article.readtime_minutes %}
-    &mdash; {{ article.readtime_minutes }} min read
+    &mdash; Leitura de {{ article.readtime_minutes }} minuto(s)
     {% endif %}
 </div>

@@ -112,7 +112,7 @@ div.post-content, div.entry-content {
 
 
 div.navigation {
-    text-align: left;
+    /*text-align: left*/;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -245,7 +245,7 @@ footer.index-footer {
     padding: 10px 0 25px;
     border-top: 1px solid rgba(0,0,0,0.1);
 
-    a {
+    a, span {
         display: inline-block;
         color: rgba(0,0,0,0.3);
         font-size: 12px;
@@ -723,7 +723,7 @@ div.author-page-header {
 
     div.avatar, div.avatar-no-cover {
         display: inline-block;
-        width: 120px;
+        /*width: 120px*/;
         height: 120px;
 
         img {

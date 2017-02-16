@@ -3,10 +3,10 @@
 {% block content %}
 <div class="author-page-header">
     {% if author|string in MEDIUS_AUTHORS %}
-    {% if MEDIUS_AUTHORS.get(author|string).cover %}
-    <div class="cover" style="background-image: url({{ MEDIUS_AUTHORS.get(author|string).cover }})"></div>
-    {% endif %}
-    <div class="avatar{% if not MEDIUS_AUTHORS.get(author|string).cover %}-no-cover{% endif %}"><img src="{{ MEDIUS_AUTHORS.get(author|string).image}}" alt="{{ author|striptags }}"></div>
+    {% set cover = MEDIUS_AUTHORS.get(author|string).cover or DEFAULT_COVER %}
+    {% set profile_image = MEDIUS_AUTHORS.get(author|string).image or DEFAULT_PROFILE_IMG %}
+    <div class="cover" style="background-image: url({{ cover }})"></div>
+    <div class="avatar"><img src="{{ profile_image }}" alt="{{ author|striptags }}"></div>
     <div class="author-profile">
         <h1>{{ author }}</h1>
         <p class="author-description">
@@ -22,7 +22,7 @@
 </div>
 
 <div class="author-page-divider">
-    <span>Latest Posts</span>
+    <span>Últimas Postagens</span>
 </div>
 
 

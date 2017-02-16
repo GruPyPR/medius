@@ -17,9 +17,9 @@
         <div class="background-image-container">
 
             {# title with big background image #}
-            {% if article.cover %}
-            <div class="background-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ article.cover }});">
-                <img src="{{ article.cover }}" alt="{{ article.title|striptags }}">
+            {% set cover = article.cover or DEFAULT_COVER %}
+            <div class="background-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ cover }});">
+                <img src="{{ cover }}" alt="{{ article.title|striptags }}">
                 <div class="title">
                 <h1>
                     {{ article.title }}
@@ -31,19 +31,6 @@
                 {% endif %}
                 </div>
             </div>
-            {% else %}
-            <div class="background-image-small">
-                {% if article.thumbnail %}
-                <img src="{{ article.thumbnail }}" alt="{{ article.title|striptags }}">
-                {% endif %}
-                <div class="title-container">
-                    <h1>{{ article.title }}</h1>
-                    {% if article.subtitle %}
-                    <h4>{{ article.subtitle }}</h4>
-                    {% endif %}
-                </div>
-            </div>
-            {% endif %}
         </div>
     </div>
 

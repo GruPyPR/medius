@@ -311,7 +311,6 @@ div.post-meta {
 
 div.page-container {
     text-align: center;
-    margin-top: 80px;
 
     div.entry-content {
         max-width: 700px;
@@ -324,6 +323,37 @@ div.page-container {
 
         @media #{$media-sm} {
             line-height: 1.6;
+        }
+
+        div.event-header {
+            background: #53707B;
+            border: 1px solid #222;
+            p {
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            p.title {
+                font-size: 1.5em;
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+            }
+        }
+
+        table {
+            width: 100%;
+        }
+
+        div.event-footer {
+            text-align: center;
+            background: #53707B;
+
+            a {
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.5);
+            }
         }
     }
 

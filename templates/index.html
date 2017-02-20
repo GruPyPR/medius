@@ -22,6 +22,18 @@
             <div class="right-container">
                 <div class="right-bar">
                     <div class="right-head">
+                         Páginas
+                    </div>
+                    <div class="tags">
+                    {% for p in pages %}
+                    <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="right-bar">
+                    <div class="right-head">
                          Tags
                     </div>
                     <div class="tags">

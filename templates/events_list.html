@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title|striptags }}{% endblock %}
+{% block content %}
+<div class="page-container">
+    <div class="article-header-container">
+        <div class="background-image-container">
+            {% set bg = 'https://placeimg.com/1920/600/tech' %}
+            <div class="background-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ bg }});">
+                <img src="{{ bg }}" alt="{{ page.title|striptags }}">
+                <div class="title">
+                <h1>
+                    {{ page.title }}
+                </h1>
+                {% if page.subtitle %}
+                <h2>
+                    {{ page.subtitle }}
+                </h2>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>Lista dos nossos próximos encontros</h2>
+    <div class="entry-content">
+    {% if events_list %}
+        {% for event in events_list %}
+        <div class="pure-u-5-5 event">
+            <div class="event-header">
+                <p class="title"><a target="_blank" href="{{ event.link }}">{{ event.name }}</a></p>
+                <p>{{ event.time.strftime('%d de %B de %Y às %H:%M') }}</p>
+            </div>
+            <table class="pure-table pure-table-bordered">
+                <tr>
+                    <td>Local:</td>
+                    <td>{{ event.venue.name }}</td>
+                </tr>
+                <tr>
+                    <td>Endereço:</td>
+                    <td>{{ event.venue.address_1 }}</td>
+                </tr>
+                <tr>
+                    <td>Confirmados:</td>
+                    <td>{{ event.yes_rsvp_count }}</td>
+                </tr>
+            </table>
+            <div class="event-footer">
+                <a target="_blank" href="https://www.google.com/maps/?q={{ event.venue.lat}},{{event.venue.lon}}">Ver no mapa</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Sem eventos registrados</p>
+    {% endif %}
+    </div>
+
+</div>
+{% endblock %}
